@@ -5,50 +5,28 @@
   <title>PlanifAI – V3 Futuriste</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Lien vers le CSS externe -->
+  <!-- Lien vers ton CSS externe -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- PWA Manifest -->
+  <!-- Manifest PWA -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#3b82f6">
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD pour SEO -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://heloise97122.github.io/PlanifAI/#website",
-        "url": "https://heloise97122.github.io/PlanifAI/",
-        "name": "PlanifAI",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://heloise97122.github.io/PlanifAI/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://heloise97122.github.io/PlanifAI/#organization",
-        "name": "PlanifAI",
-        "url": "https://heloise97122.github.io/PlanifAI/",
-        "logo": "https://heloise97122.github.io/PlanifAI/icons/icon-512.png"
-      }
-    ]
-  }
+  { /* ... ton JSON-LD ici ... */ }
   </script>
 
-  <!-- Accessibility testing with axe-core -->
+  <!-- Axe-core pour tests a11y -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.4.1/axe.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      axe.run((err, results) => console.log(results.violations));
+    document.addEventListener('DOMContentLoaded', () => {
+      axe.run((err, results) => console.log('Axe violations', results.violations));
     });
   </script>
 </head>
-
 <body>
+
   <!-- HEADER -->
   <header>
     <h1>PlanifAI</h1>
@@ -79,9 +57,9 @@
     <section class="features">
       <h2>Features</h2>
       <div class="grid">
-        <div class="card"><h3>Workflows sur-mesure</h3><p>Adaptez les processus.</p></div>
+        <div class="card"><h3>Workflows sur-mesure</h3><p>Adaptez vos processus.</p></div>
         <div class="card"><h3>Tâches automatisées</h3><p>Déléguez à l’IA.</p></div>
-        <div class="card"><h3>Intégrations</h3><p>Connectez vos outils.</p></div>
+        <div class="card"><h3>Intégrations</h3><p>Connectez vos outils favoris.</p></div>
         <div class="card"><h3>Scalabilité</h3><p>Déployez sans limite.</p></div>
       </div>
     </section>
@@ -95,18 +73,15 @@
     <section class="pricing">
       <h2>Tarification</h2>
       <div class="grid">
-        <div class="card"><h3>Starter</h3><p>19€/mois</p></div>
-        <div class="card"><h3>Pro+</h3><p>49€/mois</p></div>
-        <div class="card"><h3>Premium</h3><p>79€/mois</p></div>
+        <div class="card"><h3>Starter</h3><p>19€/mois – Agent IA + mini-site</p></div>
+        <div class="card"><h3>Pro+</h3><p>49€/mois – Multi-agents & intégrations</p></div>
+        <div class="card"><h3>Premium</h3><p>79€/mois – Design sur‑mesure & support</p></div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer>© 2025 PlanifAI</footer>
-</body>
-</html>
-<body>
-  <!-- Contenu existant : header, hero, sections... -->
+  <footer>© 2025 PlanifAI</footer>
+
 </body>
 </html>
