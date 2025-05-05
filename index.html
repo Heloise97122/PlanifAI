@@ -6,15 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    /* RESET & BASE */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #0b0f1a 0%, #121827 100%);
+      background: radial-gradient(circle at 20% 20%, #141827, #0b0f1a 70%);
       color: #ffffff;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
+    /* BACKGROUND ANIMATION */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20%;
+      left: -20%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 60%);
+      animation: pulse 10s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.2); opacity: 0.9; }
+    }
+
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -23,7 +48,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 2rem 5%;
-      background: rgba(16, 22, 38, 0.9);
+      background: rgba(16, 22, 38, 0.7);
       backdrop-filter: blur(10px);
     }
 
@@ -41,18 +66,19 @@
       font-size: 1rem;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px #3b82f6;
+      box-shadow: 0 0 15px #3b82f6;
     }
 
     .cta-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px #6366f1;
+      box-shadow: 0 0 25px #6366f1;
     }
 
+    /* HERO */
     .hero {
       padding: 5rem 5%;
       text-align: center;
-      background: radial-gradient(circle at top, #1f2937 0%, #0b0f1a 100%);
+      background: linear-gradient(180deg, #0b0f1a 0%, #121827 100%);
     }
 
     .hero h2 {
@@ -67,86 +93,73 @@
       margin: 0 auto 2rem;
     }
 
+    /* SECTIONS */
     section {
       padding: 4rem 5%;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
+    h2 {
+      font-size: 2rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
 
-    .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-    }
-
-    .feature-card h3 {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      color: #93c5fd;
-    }
-
-    .pricing {
-      display: flex;
-      flex-wrap: wrap;
+    /* FEATURES / AGENTS / PRICING */
+    .features, .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       justify-content: center;
     }
 
-    .price-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 2rem;
       border-radius: 16px;
-      text-align: center;
-      width: 280px;
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .price-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(99, 102, 241, 0.3);
+    .card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99,102,241,0.1), transparent 60%);
+      z-index: 0;
     }
 
-    .price-card h4 {
-      font-size: 1.5rem;
+    .card h3 {
+      position: relative;
+      z-index: 1;
       margin-bottom: 0.5rem;
+      color: #93c5fd;
     }
 
-    .price-card .price {
+    .card p {
+      position: relative;
+      z-index: 1;
+      color: #e5e7eb;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .pricing .card .price {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
       color: #60a5fa;
     }
 
-    .chat-box {
-      margin: 4rem auto;
-      max-width: 600px;
-      padding: 2rem;
-      background: rgba(17, 24, 39, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      backdrop-filter: blur(8px);
-    }
-
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem 5%;
@@ -154,6 +167,7 @@
       font-size: 0.9rem;
       color: #6b7280;
     }
+
   </style>
 </head>
 <body>
@@ -170,48 +184,44 @@
 </div>
 
 <section>
-  <h2 style="text-align:center;">Fonctionnalités clés</h2>
+  <h2>Nos agents IA</h2>
   <div class="features">
-    <div class="feature-card">
-      <h3>Gagnez du temps</h3>
-      <p>Réduisez les tâches répétitives grâce à nos agents spécialisés.</p>
+    <div class="card">
+      <h3>FiscAI</h3>
+      <p>Analyse de factures, pré-comptabilité, alertes et export comptable. Pensé pour les pros débordés.</p>
     </div>
-    <div class="feature-card">
-      <h3>Simplifiez votre quotidien</h3>
-      <p>Des outils automatisés, conçus pour les non-techniciens.</p>
+    <div class="card">
+      <h3>WebBuilder AI</h3>
+      <p>Crée un site HTML responsive automatiquement selon ton secteur. Pour artisans, freelances, créateurs.</p>
     </div>
-    <div class="feature-card">
-      <h3>Plateforme évolutive</h3>
-      <p>Ajoutez ou retirez des agents IA selon vos besoins.</p>
+    <div class="card">
+      <h3>ClientZen</h3>
+      <p>Répond aux mails, suit la satisfaction client, propose des relances. Un assistant relation client complet.</p>
     </div>
-    <div class="feature-card">
-      <h3>Support intelligent</h3>
-      <p>Chaque agent est autonome et vous accompagne au quotidien.</p>
+    <div class="card">
+      <h3>PlanAI</h3>
+      <p>Génère un planning hebdo intelligent à partir de tes priorités. Optimise ta charge mentale.</p>
     </div>
   </div>
 </section>
 
-<div class="chat-box">
-  <p><strong>AI:</strong> How can I assist you today?</p>
-</div>
-
 <section>
-  <h2 style="text-align:center;">Tarifs</h2>
+  <h2>Tarification</h2>
   <div class="pricing">
-    <div class="price-card">
-      <h4>Starter</h4>
+    <div class="card">
+      <h3>Starter</h3>
       <div class="price">19€/mois</div>
-      <p>Idéal pour démarrer. Site + 1 agent IA inclus.</p>
+      <p>Agent IA + mini site + support standard. Parfait pour commencer.</p>
     </div>
-    <div class="price-card">
-      <h4>Pro+</h4>
+    <div class="card">
+      <h3>Pro+</h3>
       <div class="price">49€/mois</div>
-      <p>Agents multiples, intégrations Zapier, support prioritaire.</p>
+      <p>Multi-agents + intégrations (Stripe, Tally, Zapier) + support prioritaire.</p>
     </div>
-    <div class="price-card">
-      <h4>Premium</h4>
+    <div class="card">
+      <h3>Premium</h3>
       <div class="price">79€/mois</div>
-      <p>Animations, SEO, design sur mesure et dashboard intégré.</p>
+      <p>Animations, design sur-mesure, SEO intégré, dashboard IA, accompagnement dédié.</p>
     </div>
   </div>
 </section>
