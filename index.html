@@ -2,115 +2,220 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>PlanifAI – Features épurées</title>
+  <title>PlanifAI – Agents IA pour TPE/PME</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #0b0e14;
+      background-color: #090c12;
       color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20%;
+      left: -20%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(60,64,112,0.08) 0%, transparent 70%);
+      animation: pulse 10s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.2); opacity: 0.9; }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 5%;
+      background: rgba(16, 22, 38, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px #3b82f6;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #6366f1;
+    }
+
+    .hero {
+      padding: 5rem 5%;
+      text-align: center;
+      background: #0b0e14;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
 
     section {
-      padding: 4rem 6%;
+      padding: 4rem 5%;
     }
 
     h2 {
       font-size: 2rem;
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
-    .features-grid {
+    .features, .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2.5rem 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      gap: 2rem;
+      justify-content: center;
     }
 
-    .feature-item {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-
-    .feature-item svg {
-      fill: #3b82f6;
-      width: 28px;
-      height: 28px;
-    }
-
-    .feature-title {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #ffffff;
-    }
-
-    .feature-desc {
-      font-size: 0.95rem;
-      color: #9ca3af;
-      line-height: 1.5;
-    }
-
-    .chat-box {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 14px;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 2rem;
-      margin: 4rem auto;
-      max-width: 700px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .chat-box .avatar {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99,102,241,0.1), transparent 60%);
+      z-index: 0;
     }
 
-    .chat-box p {
-      font-size: 1.1rem;
+    .card h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0.5rem;
+      color: #93c5fd;
+    }
+
+    .card p {
+      position: relative;
+      z-index: 1;
       color: #e5e7eb;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .pricing .card .price {
+      font-size: 2rem;
+      margin: 1rem 0;
+      color: #60a5fa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 5%;
+      background: #0a0d13;
+      font-size: 0.9rem;
+      color: #6b7280;
     }
   </style>
 </head>
 <body>
 
+<header>
+  <h1>PlanifAI</h1>
+  <button class="cta-btn">Lancer un agent IA</button>
+</header>
+
+<div class="hero">
+  <h2>Automatisez vos tâches. Concentrez-vous sur l’essentiel.</h2>
+  <p>Des agents intelligents, prêts à l’emploi, pour TPE et PME. Aucune compétence technique requise.</p>
+  <button class="cta-btn">Découvrir les agents</button>
+</div>
+
 <section>
-  <h2>Features</h2>
-  <div class="features-grid">
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7"></path></svg>
-      <div class="feature-title">Customizable workflows</div>
-      <div class="feature-desc">Design complex processes effortlessly</div>
+  <h2>Nos agents IA</h2>
+  <div class="features">
+    <div class="card">
+      <h3>FiscAI</h3>
+      <p>Analyse de factures, pré-comptabilité, alertes et export comptable. Pensé pour les pros débordés.</p>
     </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h4"></path></svg>
-      <div class="feature-title">Automated tasks</div>
-      <div class="feature-desc">Offload work to intelligent agents</div>
+    <div class="card">
+      <h3>WebBuilder AI</h3>
+      <p>Crée un site HTML responsive automatiquement selon ton secteur. Pour artisans, freelances, créateurs.</p>
     </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-      <div class="feature-title">Powerful integrations</div>
-      <div class="feature-desc">Connect to your favorite tools</div>
+    <div class="card">
+      <h3>ClientZen</h3>
+      <p>Répond aux mails, suit la satisfaction client, propose des relances. Un assistant relation client complet.</p>
     </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><path d="M3 10h4v4H3z M10 10h4v4h-4z M17 10h4v4h-4z"></path></svg>
-      <div class="feature-title">Scalable platform</div>
-      <div class="feature-desc">Deploy and manage multiple agents</div>
+    <div class="card">
+      <h3>PlanAI</h3>
+      <p>Génère un planning hebdo intelligent à partir de tes priorités. Optimise ta charge mentale.</p>
     </div>
   </div>
 </section>
 
-<div class="chat-box">
-  <div class="avatar">👤</div>
-  <p>How can I assist you today?</p>
-</div>
+<section>
+  <h2>Tarification</h2>
+  <div class="pricing">
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price">19€/mois</div>
+      <p>Agent IA + mini site + support standard. Parfait pour commencer.</p>
+    </div>
+    <div class="card">
+      <h3>Pro+</h3>
+      <div class="price">49€/mois</div>
+      <p>Multi-agents + intégrations (Stripe, Tally, Zapier) + support prioritaire.</p>
+    </div>
+    <div class="card">
+      <h3>Premium</h3>
+      <div class="price">79€/mois</div>
+      <p>Animations, design sur-mesure, SEO intégré, dashboard IA, accompagnement dédié.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 PlanifAI. Tous droits réservés.
+</footer>
 
 </body>
 </html>
