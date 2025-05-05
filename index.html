@@ -1,73 +1,70 @@
-import json
-from IPython.display import HTML
+<!DOCTYPE html>
+<html lang="fr" x-data="{ theme: 'dark' }" :class="theme" data-theme>
+<head>
+  <meta charset="UTF-8">
+  <title>PlanifAI – Futuriste & Tendance</title>
+  <meta name="description" content="PlanifAI propose des agents IA prêts à l'emploi pour TPE/PME : automatisation, suivi client, pré-compta, site instantané.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-# Create manifest.json content
-manifest = {
-    "name": "PlanifAI",
-    "short_name": "PlanifAI",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#12121c",
-    "theme_color": "#3b82f6",
-    "icons": [
-        {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
-        {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"}
-    ]
-}
+  <!-- Preconnect & Preload -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-# Write manifest.json
-with open('/mnt/data/manifest.json', 'w', encoding='utf-8') as f:
-    json.dump(manifest, f, indent=2)
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3b82f6">
 
-# Prepare index.html head snippet with JSON-LD and manifest link
-head_snippet = """
-<!-- PWA Manifest -->
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#3b82f6">
-
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://heloise97122.github.io/PlanifAI/#website",
-      "url": "https://heloise97122.github.io/PlanifAI/",
-      "name": "PlanifAI",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://heloise97122.github.io/PlanifAI/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://heloise97122.github.io/PlanifAI/#website",
+        "url": "https://heloise97122.github.io/PlanifAI/",
+        "name": "PlanifAI",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://heloise97122.github.io/PlanifAI/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://heloise97122.github.io/PlanifAI/#organization",
+        "name": "PlanifAI",
+        "url": "https://heloise97122.github.io/PlanifAI/",
+        "logo": "https://heloise97122.github.io/PlanifAI/icons/icon-512.png"
       }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://heloise97122.github.io/PlanifAI/#organization",
-      "name": "PlanifAI",
-      "url": "https://heloise97122.github.io/PlanifAI/",
-      "logo": "https://heloise97122.github.io/PlanifAI/icons/icon-512.png"
-    }
-  ]
-}
-</script>
+    ]
+  }
+  </script>
 
-<!-- Accessibility testing with axe-core -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.4.1/axe.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    axe.run(function(err, results) {
-      if (err) throw err;
-      console.log('Axe accessibility violations:', results.violations);
+  <!-- Accessibility testing with axe-core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.4.1/axe.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      axe.run(function(err, results) {
+        if (err) throw err;
+        console.log('Axe accessibility violations:', results.violations);
+      });
     });
-  });
-</script>
-"""
+  </script>
 
-# Display manifest.json and head snippet
-HTML(f"""
-<h3>manifest.json</h3>
-<pre>{json.dumps(manifest, indent=2)}</pre>
-<h3>Head Snippet (index.html)</h3>
-<pre>{head_snippet}</pre>
-""")
+  <!-- CSS Variables & Styles (extrait) -->
+  <style>
+    /* Ton CSS existant ici… */
+  </style>
+</head>
+<body x-cloak>
+
+  <!-- Ton body existant (header, hero, sections…) ici… -->
+
+  <!-- Footer -->
+  <footer>© 2025 PlanifAI. Tous droits réservés.</footer>
+
+  <!-- Tes scripts existants (GSAP, Lottie, Three.js, Stripe…) ici… -->
+</body>
+</html>
