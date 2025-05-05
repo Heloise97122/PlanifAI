@@ -1,83 +1,303 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanifAI – Vos agents IA prêts à l’emploi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+  <head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <meta charset="UTF-8">
+  <title>PlanifAI – Agents IA pour TPE/PME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+  body {
+    font-family: 'Inter', sans-serif;
+  
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f1a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 5%;
+      background: linear-gradient(90deg, #1e1f3b, #101322);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      background: #4f46e5;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #6366f1;
+    }
+
+    .hero {
+      padding: 4rem 5%;
+      text-align: center;
+      background: radial-gradient(circle at top, #1f2937 0%, #0b0f1a 100%);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #d1d5db;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    section {
+      padding: 3rem 5%;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .feature-card {
+      background: #1c1f32;
+      padding: 2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background: #25294a;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+      color: #93c5fd;
+    }
+
+    .pricing {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .price-card {
+      background: #1f2236;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .price-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    .price-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card .price {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #11131d;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+  </style>
 </head>
 <body>
-<nav class="main-nav">
-    <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="agents/webbuilder.html">WebBuilder AI</a></li>
-        <li><a href="agents/crm_autopilot.html">CRM AutoPilot</a></li>
-        <li><a href="agents/content_ai.html">ContentAI</a></li>
-        <li><a href="agents/prospecteur_ai.html">Prospecteur AI</a></li>
-        <li><a href="agents/fiscai.html">FiscAI</a></li>
-    </ul>
-</nav>
-<header class="hero reveal">
-    <h1>Bienvenue sur PlanifAI</h1>
-    <p>Une suite d’agents IA prêts à l’emploi pour automatiser les tâches clés de votre TPE/PME. Sans code. Sans prise de tête.</p>
-    <a href="#agents" class="cta">Découvrir les agents</a>
+
+
+  <header style="position:sticky; top:0; z-index:1000;">
+  
+  <h1>PlanifAI</h1>
+  <button class="cta-btn">Lancer un agent IA</button>
 </header>
 
-<section class="section reveal" id="agents">
-    <h2>Nos agents IA</h2>
-    <div class="cards">
-        <a href="agents/webbuilder.html" class="card-link">
-            <div class="card">
-                <h3>WebBuilder AI</h3>
-                <p>Créez un mini-site professionnel en 5 minutes.</p>
-            </div>
-        </a>
-        <a href="agents/crm_autopilot.html" class="card-link">
-            <div class="card">
-                <h3>CRM AutoPilot</h3>
-                <p>Automatisez vos relances, suivis et devis clients.</p>
-            </div>
-        </a>
-        <a href="agents/content_ai.html" class="card-link">
-            <div class="card">
-                <h3>ContentAI</h3>
-                <p>Recevez chaque semaine des posts prêts à publier.</p>
-            </div>
-        </a>
-        <a href="agents/prospecteur_ai.html" class="card-link">
-            <div class="card">
-                <h3>Prospecteur AI</h3>
-                <p>Prospection intelligente par mail, automatisée.</p>
-            </div>
-        </a>
-        <a href="agents/fiscai.html" class="card-link">
-            <div class="card">
-                <h3>FiscAI</h3>
-                <p>Votre assistant pré-comptable mensuel.</p>
-            </div>
-        </a>
+<div class="hero">
+  <h2>Automatisez vos tâches. Concentrez-vous sur l’essentiel.</h2>
+  <p>Des agents intelligents, prêts à l’emploi, pour TPE et PME. Aucune compétence technique requise.</p>
+  <button class="cta-btn">Découvrir les agents</button>
+</div>
+
+<section>
+  <h2 style="text-align:center;">Fonctionnalités clés</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Gagnez du temps</h3>
+      <p>Réduisez les tâches répétitives grâce à nos agents spécialisés.</p>
     </div>
+    <div class="feature-card">
+      <h3>Simplifiez votre quotidien</h3>
+      <p>Des outils automatisés, conçus pour les non-techniciens.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Plateforme évolutive</h3>
+      <p>Ajoutez ou retirez des agents IA selon vos besoins.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Support intelligent</h3>
+      <p>Chaque agent est autonome et vous accompagne au quotidien.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section reveal">
-    <h2>Pourquoi PlanifAI ?</h2>
-    <ul>
-        <li><strong>100 % opérationnel :</strong> chaque agent répond à un besoin concret d’une TPE.</li>
-        <li><strong>Sans technicité :</strong> pas besoin de savoir coder ou d’installer quoi que ce soit.</li>
-        <li><strong>Payez une fois, utilisez librement :</strong> pas d’abonnement piégeux.</li>
-    </ul>
-</section>
-
-<section class="section reveal" style="text-align: center;">
-    <h2>Commencez dès maintenant</h2>
-    <p>PlanifAI vous permet d’agir aujourd’hui, sans dépendre de prestataires techniques.</p>
-    <a href="#agents" class="cta">Choisir un agent</a>
+<section>
+  <h2 style="text-align:center;">Tarifs</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <h4>Starter</h4>
+      <div class="price">19€/mois</div>
+      <p>Idéal pour démarrer. Site + 1 agent IA inclus.</p>
+    </div>
+    <div class="price-card">
+      <h4>Pro+</h4>
+      <div class="price">49€/mois</div>
+      <p>Agents multiples, intégrations Zapier, support prioritaire.</p>
+    </div>
+    <div class="price-card">
+      <h4>Premium</h4>
+      <div class="price">79€/mois</div>
+      <p>Animations, SEO, design sur mesure et dashboard intégré.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-    &copy; 2025 PlanifAI. Tous droits réservés.
+  © 2025 PlanifAI. Tous droits réservés.
+
+<section>
+  <h2 style="text-align:center;">Nos agents IA</h2>
+  <div class="features">
+    <div class="feature-card">
+      <svg width="40" height="40" fill="#60a5fa" viewBox="0 0 24 24"><path d="M3 4h18v2H3V4zm0 14h18v2H3v-2zm0-7h18v2H3v-2z"/></svg>
+      <h3>FiscAI</h3>
+      <p>Analyse automatique de vos factures, suivi mensuel, et export CSV. Simplifiez votre pré-comptabilité.</p>
+    </div>
+    <div class="feature-card">
+      <svg width="40" height="40" fill="#60a5fa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+      <h3>WebBuilder AI</h3>
+      <p>Créez un site vitrine en HTML en quelques secondes. Idéal pour artisans et indépendants.</p>
+    </div>
+    <div class="feature-card">
+      <svg width="40" height="40" fill="#60a5fa" viewBox="0 0 24 24"><path d="M2 3h20v18l-6-5H2V3z"/></svg>
+      <h3>ClientZen</h3>
+      <p>Réponses e-mail automatiques, suivi de satisfaction, relances client : un assistant relation client intelligent.</p>
+    </div>
+    <div class="feature-card">
+      <svg width="40" height="40" fill="#60a5fa" viewBox="0 0 24 24"><path d="M3 13h18v-2H3v2zm0 4h12v-2H3v2zm0-8h18V7H3v2z"/></svg>
+      <h3>PlanAI</h3>
+      <p>Organisez votre semaine avec un assistant personnalisé : tâches, rappels, et priorisation IA.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align:center;">Comment ça marche ?</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>C'est quoi un agent IA ?</h3>
+      <p>Un mini-assistant qui fait une tâche bien précise, automatiquement. Exemple : créer un site ou suivre vos factures.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Est-ce que c’est compliqué ?</h3>
+      <p>Non. Vous cliquez, vous répondez à 2-3 questions, et ça fonctionne. Pas besoin de coder ou configurer.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Combien ça coûte ?</h3>
+      <p>À partir de 19€ par mois pour un agent IA clé en main. Tout est inclus, sans surcoût caché.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Et si j’ai un souci ?</h3>
+      <p>Chaque plan inclut un support. Et dès Pro+, vous êtes prioritaire avec un agent dédié à votre compte.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align:center;">Ce qu'en disent nos utilisateurs</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Marc – Artisan</h3>
+      <p>“J’ai lancé mon site en 3 minutes, sans rien comprendre à l’informatique. Bluffé par la simplicité.”</p>
+    </div>
+    <div class="feature-card">
+      <h3>Sonia – Gérante de boutique</h3>
+      <p>“FiscAI m’a évité des heures de paperasse chaque mois. Je recommande les yeux fermés.”</p>
+    </div>
+    <div class="feature-card">
+      <h3>Ali – Auto-entrepreneur</h3>
+      <p>“J’utilise PlanAI chaque lundi. Je perds moins de temps à organiser mes tâches.”</p>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center;">
+  <h2>Prêt à lancer votre agent IA ?</h2>
+  <p style="color:#d1d5db; max-width: 600px; margin: 0 auto 2rem;">Démarrez aujourd’hui et automatisez vos tâches avec une solution simple, accessible et adaptée aux petites structures.</p>
+  <button class="cta-btn">Je commence maintenant</button>
+  <p style="margin-top: 2rem; font-size: 0.9rem; color: #9ca3af;">Ou contactez-nous : logiciel.hyb@gmail.com</p>
+</section>
 </footer>
-<script src="script.js"></script>
+
+
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.feature-card, .price-card').forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all 0.6s ease-out";
+    observer.observe(el);
+  });
+</script>
 </body>
+
 </html>
