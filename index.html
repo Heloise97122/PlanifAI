@@ -5,82 +5,107 @@
   <title>PlanifAI – V3 Futuriste</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Styles globaux -->
-  <style>
-    /* === CSS VARIABLES === */
-    :root {
-      --bg: #12121c;             /* Fond sombre */
-      --fg: #ffffff;             /* Texte principal */
-      --fg-secondary: #e5e7eb;   /* Texte secondaire (gris clair) */
-      --accent1: #2563eb;        /* Accent bleu vif */
-      --accent2: #4f46e5;        /* Accent violet sombre */
-      --card-bg: rgba(255,255,255,0.07);  /* Fond des cartes */
-      --shadow: rgba(0,0,0,0.6); /* Ombre profonde */
-      --padding: 1.5rem;
-      --duration: 0.3s;
-    }
+  <!-- Lien vers le CSS externe -->
+  <link rel="stylesheet" href="style.css">
 
-    /* === RESET & BASE === */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      overflow-x: hidden;
-    }
-
-    /* === STYLING DES ÉLÉMENTS CLÉS === */
-    body {
-      background: var(--bg);
-    }
-    .cta-btn {
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      box-shadow: 0 0 12px var(--accent1);
-      transition: transform var(--duration), box-shadow var(--duration);
-    }
-    .cta-btn:hover {
-      box-shadow: 0 0 20px var(--accent2);
-    }
-
-    /* Titres dans les cartes et features */
-    .card h3,
-    .feature-item .feature-title {
-      color: var(--accent1);
-    }
-
-    /* Textes secondaires */
-    .card p,
-    .feature-item .feature-desc {
-      color: var(--fg-secondary);
-    }
-
-    /* Icones dans la section features */
-    .feature-item svg {
-      fill: var(--accent1);
-    }
-
-    /* Cartes et chat-box */
-    .card,
-    .chat-box {
-      background: var(--card-bg);
-      box-shadow: 0 8px 30px var(--shadow);
-      transition: background var(--duration), box-shadow var(--duration);
-    }
-  </style>
-
-  <!-- PWA & SEO -->
+  <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#3b82f6">
+
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-  {... JSON-LD ici ...}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://heloise97122.github.io/PlanifAI/#website",
+        "url": "https://heloise97122.github.io/PlanifAI/",
+        "name": "PlanifAI",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://heloise97122.github.io/PlanifAI/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://heloise97122.github.io/PlanifAI/#organization",
+        "name": "PlanifAI",
+        "url": "https://heloise97122.github.io/PlanifAI/",
+        "logo": "https://heloise97122.github.io/PlanifAI/icons/icon-512.png"
+      }
+    ]
+  }
   </script>
+
+  <!-- Accessibility testing with axe-core -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.4.1/axe.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      axe.run((err, result) => console.log(result.violations));
+      axe.run((err, results) => console.log(results.violations));
     });
   </script>
 </head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>PlanifAI</h1>
+    <button class="cta-btn">Lancer un agent IA</button>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <h2>Automatisez vos tâches.</h2>
+      <h2>Concentrez-vous sur l’essentiel.</h2>
+      <p>Des agents IA prêts à l’emploi pour TPE/PME.</p>
+      <button class="cta-btn">Découvrir les agents</button>
+    </section>
+
+    <!-- NOS AGENTS IA -->
+    <section class="agents">
+      <h2>Nos agents IA</h2>
+      <div class="grid">
+        <div class="card"><h3>FiscAI</h3><p>Analyse de factures et pré-compta simplifiée.</p></div>
+        <div class="card"><h3>WebBuilder AI</h3><p>Création de site instantané.</p></div>
+        <div class="card"><h3>ClientZen</h3><p>Automatisation des relances clients.</p></div>
+        <div class="card"><h3>PlanAI</h3><p>Organisation intelligente du planning.</p></div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <h2>Features</h2>
+      <div class="grid">
+        <div class="card"><h3>Workflows sur-mesure</h3><p>Adaptez les processus.</p></div>
+        <div class="card"><h3>Tâches automatisées</h3><p>Déléguez à l’IA.</p></div>
+        <div class="card"><h3>Intégrations</h3><p>Connectez vos outils.</p></div>
+        <div class="card"><h3>Scalabilité</h3><p>Déployez sans limite.</p></div>
+      </div>
+    </section>
+
+    <!-- CHATBOX -->
+    <div class="chat-box">
+      <p>👤 How can I assist you today?</p>
+    </div>
+
+    <!-- TARIFS -->
+    <section class="pricing">
+      <h2>Tarification</h2>
+      <div class="grid">
+        <div class="card"><h3>Starter</h3><p>19€/mois</p></div>
+        <div class="card"><h3>Pro+</h3><p>49€/mois</p></div>
+        <div class="card"><h3>Premium</h3><p>79€/mois</p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>© 2025 PlanifAI</footer>
+</body>
+</html>
 <body>
   <!-- Contenu existant : header, hero, sections... -->
 </body>
