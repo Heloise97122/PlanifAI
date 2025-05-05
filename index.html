@@ -2,183 +2,86 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>PlanifAI – Alternative Épurée</title>
+  <title>PlanifAI – V3 Futuriste</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Styles globaux -->
   <style>
-    /* RESET & BASE */
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* === CSS VARIABLES === */
+    :root {
+      --bg: #12121c;             /* Fond sombre */
+      --fg: #ffffff;             /* Texte principal */
+      --fg-secondary: #e5e7eb;   /* Texte secondaire (gris clair) */
+      --accent1: #2563eb;        /* Accent bleu vif */
+      --accent2: #4f46e5;        /* Accent violet sombre */
+      --card-bg: rgba(255,255,255,0.07);  /* Fond des cartes */
+      --shadow: rgba(0,0,0,0.6); /* Ombre profonde */
+      --padding: 1.5rem;
+      --duration: 0.3s;
+    }
+
+    /* === RESET & BASE === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0b15;
-      color: #fff;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* TYPOGRAPHIE */
-    h1, h2 { font-weight: 600; }
-    h1 { font-size: 2.5rem; margin-bottom: .5rem; }
-    h2 { font-size: 2rem; margin-bottom: 1rem; }
-    p { color: #c0c0c0; }
-
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-    }
-    header h1 { color: #3b82f6; }
-    .btn {
-      background: #3b82f6;
-      color: #fff;
-      padding: .6rem 1.2rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background .3s ease;
-    }
-    .btn:hover { background: #2563eb; }
-
-    /* SECTIONS */
-    section {
-      padding: 3rem 5%;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1f2230;
-      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      overflow-x: hidden;
     }
 
-    /* GRID SIMPLE */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    /* === STYLING DES ÉLÉMENTS CLÉS === */
+    body {
+      background: var(--bg);
     }
-    .item {
-      background: #14151f;
-      padding: 1.5rem;
-      border-radius: 8px;
-      transition: background .3s ease, transform .3s ease;
+    .cta-btn {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      box-shadow: 0 0 12px var(--accent1);
+      transition: transform var(--duration), box-shadow var(--duration);
     }
-    .item:hover {
-      background: #1f2130;
-      transform: translateY(-4px);
+    .cta-btn:hover {
+      box-shadow: 0 0 20px var(--accent2);
     }
-    .item h3 { color: #3b82f6; margin-bottom: .5rem; }
-    .item p { font-size: .95rem; }
 
-    /* CHAT BOX */
-    .chat {
-      background: #14151f;
-      padding: 1.5rem;
-      border-radius: 8px;
-      max-width: 600px;
-      margin: 3rem auto;
-      text-align: center;
+    /* Titres dans les cartes et features */
+    .card h3,
+    .feature-item .feature-title {
+      color: var(--accent1);
     }
-    .chat p { margin: 0; }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem 5%;
-      font-size: .9rem;
-      color: #6b7280;
+    /* Textes secondaires */
+    .card p,
+    .feature-item .feature-desc {
+      color: var(--fg-secondary);
+    }
+
+    /* Icones dans la section features */
+    .feature-item svg {
+      fill: var(--accent1);
+    }
+
+    /* Cartes et chat-box */
+    .card,
+    .chat-box {
+      background: var(--card-bg);
+      box-shadow: 0 8px 30px var(--shadow);
+      transition: background var(--duration), box-shadow var(--duration);
     }
   </style>
+
+  <!-- PWA & SEO -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3b82f6">
+  <script type="application/ld+json">
+  {... JSON-LD ici ...}
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.4.1/axe.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      axe.run((err, result) => console.log(result.violations));
+    });
+  </script>
 </head>
 <body>
-
-  <header>
-    <h1>PlanifAI</h1>
-    <button class="btn">Lancer un agent IA</button>
-  </header>
-  <hr>
-
-  <section>
-    <h2>Automatisez vos tâches</h2>
-    <p>Des agents IA prêts à l’emploi pour TPE/PME. Concentrez-vous sur l’essentiel.</p>
-    <button class="btn">Découvrir les agents</button>
-  </section>
-  <hr>
-
-  <section>
-    <h2>Nos agents IA</h2>
-    <div class="grid">
-      <div class="item">
-        <h3>FiscAI</h3>
-        <p>Analyse de factures et export comptable.</p>
-      </div>
-      <div class="item">
-        <h3>WebBuilder AI</h3>
-        <p>Créez un site vitrine instantané.</p>
-      </div>
-      <div class="item">
-        <h3>ClientZen</h3>
-        <p>Automatisez vos relances clients.</p>
-      </div>
-      <div class="item">
-        <h3>PlanAI</h3>
-        <p>Organisez intelligemment votre planning.</p>
-      </div>
-    </div>
-  </section>
-  <hr>
-
-  <section>
-    <h2>Features</h2>
-    <div class="grid">
-      <div class="item">
-        <h3>Workflows sur-mesure</h3>
-        <p>Adaptez chaque processus à vos besoins.</p>
-      </div>
-      <div class="item">
-        <h3>Tâches automatisées</h3>
-        <p>Déléguez à vos agents IA.</p>
-      </div>
-      <div class="item">
-        <h3>Intégrations</h3>
-        <p>Connectez vos outils favoris.</p>
-      </div>
-      <div class="item">
-        <h3>Scalabilité</h3>
-        <p>Déployez autant d’agents que vous voulez.</p>
-      </div>
-    </div>
-  </section>
-  <hr>
-
-  <div class="chat">
-    <p><strong>👤</strong> How can I assist you today?</p>
-  </div>
-  <hr>
-
-  <section>
-    <h2>Tarification</h2>
-    <div class="grid">
-      <div class="item">
-        <h3>Starter</h3>
-        <p>19€/mois – Agent IA + mini-site</p>
-      </div>
-      <div class="item">
-        <h3>Pro+</h3>
-        <p>49€/mois – Multi-agents & intégrations</p>
-      </div>
-      <div class="item">
-        <h3>Premium</h3>
-        <p>79€/mois – Design sur-mesure & support</p>
-      </div>
-    </div>
-  </section>
-  <hr>
-
-  <footer>
-    © 2025 PlanifAI. Tous droits réservés.
-  </footer>
-
+  <!-- Contenu existant : header, hero, sections... -->
 </body>
 </html>
