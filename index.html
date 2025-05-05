@@ -1,47 +1,199 @@
-<section style="padding: 4rem 2rem; background-color: #1a1a1d; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);">
-  <h2 style="text-align:center; font-size: 2rem; color: #8b5cf6; font-weight: 400; margin-bottom: 4rem;">Nos agents IA phares</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanifAI - Agents IA pour les PME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f0f11;
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      background: #1b082f;
+    }
+    header img {
+      height: 48px;
+    }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #2b0f49, #5b0b8a);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+    }
+    .card {
+      background: #1a1a1d;
+      border: 1px solid #2f2f35;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(176, 112, 255, 0.2);
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #c084fc;
+    }
+    .card p {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #a855f7;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card a:hover {
+      background: #c084fc;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: #1b082f;
+      opacity: 0.7;
+    }
+    .agent-description {
+      padding: 2rem;
+      background-color: #1a1a1d;
+      border-radius: 1rem;
+      margin: 1rem 0;
+      color: #e5e7eb;
+    }
+    .agent-description h3 {
+      color: #c084fc;
+      font-size: 1.6rem;
+    }
+    .agent-description p {
+      margin-top: 1rem;
+    }
+    .agent-description a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #a855f7;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .agent-description a:hover {
+      background: #c084fc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-planifai.png" alt="PlanifAI" style="height: 48px;">
+  </header>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;">
-    <div style="display: flex; flex-wrap: wrap; align-items: center; background-color: #232529; border-radius: 1rem; padding: 2rem; gap: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);">
-      <div style="flex: 1; min-width: 250px;">
-        <h3 style="color: #8b5cf6; font-size: 1.4rem; font-weight: 500;">WebBuilder AI</h3>
-        <p style="color: #f5f5f5; opacity: 0.85;">WebBuilder AI transforme un simple questionnaire en site web professionnel. Vous décrivez votre activité, vos services, vos couleurs préférées… et l’agent vous livre un site HTML prêt à l’emploi. Zéro compétence technique nécessaire.</p>
-        <ul style="margin-top: 1rem; color: #d1d5db; font-weight: 300; list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+  <section class="hero">
+    <h1>Automatisez l’essentiel avec PlanifAI</h1>
+    <p>Des agents IA prêts à l’emploi pour les indépendants et les PME.</p>
+  </section>
+
+  <section style="padding: 4rem 2rem;">
+    <h2 style="text-align:center; font-size: 2rem; color: #c084fc; font-weight: 600; margin-bottom: 4rem;">Découvrez nos agents IA les plus utiles</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto;">
+      <div class="agent-description">
+        <h3>WebBuilder AI</h3>
+        <p>WebBuilder AI transforme un simple questionnaire en site web professionnel. Vous décrivez votre activité, vos services, vos couleurs préférées… et l’agent vous livre un site HTML prêt à l’emploi. Zéro compétence technique nécessaire.</p>
+        <ul style="margin-top: 1rem; color: #a1a1aa; font-style: italic;">
           <li>Évite : faire appel à un développeur</li>
           <li>Évite : chercher un template</li>
           <li>Évite : perdre des heures sur un éditeur</li>
         </ul>
-        <p style="margin-top: 0.5rem; color: #f5f5f5; font-weight: 400;">Idéal pour : coiffeurs, artisans, thérapeutes…</p>
-        <a href="/webbuilder-ai.html" style="display: inline-block; margin-top: 1rem; background: #8b5cf6; color: white; padding: 0.8rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: bold; transition: background 0.3s;">En savoir plus</a>
+        <p>Idéal pour : coiffeurs, artisans, thérapeutes…</p>
+        <a href="/webbuilder-ai.html">En savoir plus</a>
       </div>
-    </div>
 
-    <div style="display: flex; flex-wrap: wrap-reverse; align-items: center; background-color: #232529; border-radius: 1rem; padding: 2rem; gap: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);">
-      <div style="flex: 1; min-width: 250px;">
-        <h3 style="color: #8b5cf6; font-size: 1.4rem; font-weight: 500;">CRM AutoPilot</h3>
-        <p style="color: #f5f5f5; opacity: 0.85;">CRM AutoPilot suit vos devis, relance vos clients et surveille les paiements sans intervention. Il personnalise les messages selon chaque client et vous signale les oublis ou opportunités en attente.</p>
-        <ul style="margin-top: 1rem; color: #d1d5db; font-weight: 300; list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+      <div class="agent-description">
+        <h3>CRM AutoPilot</h3>
+        <p>CRM AutoPilot suit vos devis, relance vos clients et surveille les paiements sans intervention. Il personnalise les messages selon chaque client et vous signale les oublis ou opportunités en attente.</p>
+        <ul style="margin-top: 1rem; color: #a1a1aa; font-style: italic;">
           <li>Évite : oublis de relance</li>
           <li>Évite : gestion manuelle des paiements</li>
           <li>Évite : perte de prospects</li>
         </ul>
-        <p style="margin-top: 0.5rem; color: #f5f5f5; font-weight: 400;">Idéal pour : freelances, indépendants</p>
-        <a href="/crm-autopilot.html" style="display: inline-block; margin-top: 1rem; background: #8b5cf6; color: white; padding: 0.8rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: bold; transition: background 0.3s;">En savoir plus</a>
+        <p>Idéal pour : freelances, indépendants</p>
+        <a href="/crm-autopilot.html">En savoir plus</a>
       </div>
-    </div>
 
-    <div style="display: flex; flex-wrap: wrap; align-items: center; background-color: #232529; border-radius: 1rem; padding: 2rem; gap: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);">
-      <div style="flex: 1; min-width: 250px;">
-        <h3 style="color: #8b5cf6; font-size: 1.4rem; font-weight: 500;">ContentAI</h3>
-        <p style="color: #f5f5f5; opacity: 0.85;">ContentAI génère automatiquement des publications chaque semaine à partir de votre métier, de vos préférences et de votre audience. Vous recevez des textes prêts à poster, des hashtags et visuels cohérents pour rester visible sans y penser.</p>
-        <ul style="margin-top: 1rem; color: #d1d5db; font-weight: 300; list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+      <div class="agent-description">
+        <h3>ContentAI</h3>
+        <p>ContentAI génère automatiquement des publications chaque semaine à partir de votre métier, de vos préférences et de votre audience. Vous recevez des textes prêts à poster, des hashtags et visuels cohérents pour rester visible sans y penser.</p>
+        <ul style="margin-top: 1rem; color: #a1a1aa; font-style: italic;">
           <li>Évite : panne d’inspiration</li>
           <li>Évite : irrégularité de publication</li>
           <li>Évite : invisibilité sur les réseaux</li>
         </ul>
-        <p style="margin-top: 0.5rem; color: #f5f5f5; font-weight: 400;">Idéal pour : coachs, commerçants, créateurs</p>
-        <a href="/contentai.html" style="display: inline-block; margin-top: 1rem; background: #8b5cf6; color: white; padding: 0.8rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: bold; transition: background 0.3s;">En savoir plus</a>
+        <p>Idéal pour : coachs, commerçants, créateurs</p>
+        <a href="/contentai.html">En savoir plus</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="offers">
+    <div class="card">
+      <h3>Starter - 19€</h3>
+      <p>Un agent IA simple pour générer un mini-site HTML professionnel. Idéal pour débuter.</p>
+      <a href="https://buy.stripe.com/fZe5l7dnq2TZ6oo6or">Commander</a>
+    </div>
+    <div class="card">
+      <h3>Pro+ - 49€</h3>
+      <p>Site optimisé avec formulaire, responsive mobile, et design pro. Prêt à utiliser.</p>
+      <a href="https://buy.stripe.com/aEU7tf5UYcuz1445kl">Commander</a>
+    </div>
+    <div class="card">
+      <h3>Premium - 79€</h3>
+      <p>Animations, SEO, 3 révisions incluses et support prioritaire. Pour un rendu soigné.</p>
+      <a href="https://buy.stripe.com/14kaFrbfi9in144146">Commander</a>
+    </div>
+    <div class="card">
+      <h3>Sur-mesure - 249€</h3>
+      <p>Agent IA personnalisé selon vos besoins spécifiques + site complet livré clé en main.</p>
+      <a href="https://buy.stripe.com/9AQdRD5UYfGL8wwdQU">Commander</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 PlanifAI – Tous droits réservés.
+  </footer>
+</body>
+</html>
