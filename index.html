@@ -1,183 +1,413 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlanifAI - Agents IA pour les PME</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlanifAI — Les agents IA qui bossent pendant que vous vivez</title>
+  <meta name="description" content="Agents IA prêts à l’emploi pour indépendants et TPE : vendre, publier, relancer, automatiser — sans coder." />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #121212;
-      color: white;
-      overflow-x: hidden;
-      line-height: 1.6;
+    /* ========== RESET + THEME ========== */
+    :root{
+      --bg:#0b0b10;--bg2:#0f1016;--ink:#f5f7ff;--muted:#aab1c6;
+      --stroke:rgba(255,255,255,.08);--glass:rgba(255,255,255,.06);
+      --card:#12131a;--card2:#171823;--shadow:0 10px 30px rgba(0,0,0,.35);
+      --grad:linear-gradient(90deg,#a78bfa,#7c3aed,#581c87);
+      --vio:#8b5cf6
     }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2rem 3rem;
-      background: #1b082f;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-    header img {
-      height: 48px;
-    }
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #2b0f49, #5b0b8a);
-      border-bottom: 2px solid #c084fc;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-    .offers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      padding: 3rem;
-      background: #181818;
-    }
-    .card {
-      background: #1a1a1d;
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(176, 112, 255, 0.3);
-    }
-    .card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #c084fc;
-    }
-    .card p {
-      font-size: 1rem;
-      opacity: 0.85;
-    }
-    .card a {
-      display: inline-block;
-      margin-top: 1.5rem;
-      background: #8b5cf6;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .card a:hover {
-      background: #c084fc;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1rem;
-      background: #1b082f;
-      opacity: 0.7;
-    }
-    .agent-description {
-      background-color: #1a1a1d;
-      border-radius: 1rem;
-      padding: 2rem;
-      margin: 1rem 0;
-      color: #e5e7eb;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    }
-    .agent-description h3 {
-      color: #c084fc;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .agent-description p {
-      color: #f5f5f5;
-      opacity: 0.85;
-    }
-    .agent-description a {
-      display: inline-block;
-      margin-top: 1.5rem;
-      background: #8b5cf6;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .agent-description a:hover {
-      background: #c084fc;
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:radial-gradient(1200px 800px at 70% -10%,rgba(98,0,255,.25),transparent 60%),var(--bg);
+      color:var(--ink);line-height:1.55}
+    .container{width:min(1120px,92vw);margin:0 auto}
+    .sr{position:absolute;left:-9999px}
+    .skip{position:absolute;left:-9999px} .skip:focus{left:1rem;top:1rem;background:#000;color:#fff;padding:.5rem .75rem;border-radius:.5rem;z-index:9999}
+
+    /* ========== HEADER ========== */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);
+      background:linear-gradient(180deg,rgba(12,12,18,.75),rgba(12,12,18,.35));border-bottom:1px solid var(--stroke)}
+    .head{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .brand{display:flex;align-items:center;gap:.6rem;color:#fff;text-decoration:none;font-weight:800}
+    .logo{width:30px;height:30px}
+    .nav-toggle{display:none;background:none;border:1px solid var(--stroke);border-radius:.6rem;padding:.5rem}
+    .burger,.burger::before,.burger::after{display:block;content:"";width:20px;height:2px;background:#fff;position:relative;border-radius:2px}
+    .burger::before{position:absolute;top:-6px}.burger::after{position:absolute;top:6px}
+    nav ul{display:flex;gap:.6rem;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:#fff;text-decoration:none;padding:.5rem .75rem;border-radius:.6rem;border:1px solid transparent}
+    nav a:hover{background:var(--glass);border-color:var(--stroke)}
+    .btn{display:inline-block;padding:.8rem 1rem;border-radius:.8rem;text-decoration:none;font-weight:700;border:1px solid var(--stroke)}
+    .btn-primary{background:var(--grad);color:#fff;border-color:transparent}
+    .btn-ghost{background:transparent;color:#fff}
+    .btn-secondary{background:var(--card2);color:#fff}
+
+    /* ========== HERO ========== */
+    .hero{padding:5rem 0 3rem;border-bottom:1px solid var(--stroke)}
+    .grid-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+    h1{font-size:clamp(2rem,1rem + 3.2vw,3.4rem);line-height:1.1;margin:0 0 1rem}
+    .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{color:var(--muted);margin:.25rem 0 1.25rem}
+    .cta{display:flex;gap:.6rem;flex-wrap:wrap}
+    .bullets{display:grid;gap:.3rem;margin:1rem 0 0.5rem;padding-left:1rem;color:#cbd5e1}
+    .device{background:linear-gradient(180deg,#151626,#0c0d14);border-radius:1.2rem;border:1px solid var(--stroke);box-shadow:var(--shadow)}
+    .dev-top{display:flex;gap:.35rem;padding:.75rem;border-bottom:1px solid var(--stroke)}
+    .dot{width:10px;height:10px;background:#2a2b3c;border-radius:50%}
+    .dev-body{padding:1rem 1.2rem;min-height:240px}
+    .ticker{overflow:hidden;height:200px;display:flex;flex-direction:column;gap:.6rem}
+    .line{padding:.5rem .75rem;background:var(--card2);border:1px solid var(--stroke);border-radius:.6rem;animation:slide 10s linear infinite}
+    @keyframes slide{0%{transform:translateY(0)}100%{transform:translateY(-120%)}}
+
+    /* ========== SECTIONS ========== */
+    section{padding:4rem 0}
+    .alt{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+    .title{font-size:1.8rem;margin:0 0 .5rem}
+    .sub{color:var(--muted);margin:0 0 1.5rem}
+
+    /* ========== CARDS (Agents) ========== */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:1rem;padding:1.1rem;display:flex;flex-direction:column;gap:.75rem}
+    .head-card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.75rem}
+    .tag{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.25);padding:.2rem .5rem;border-radius:.5rem;font-size:.85rem}
+    .desc{color:#cdd3e3;margin:.25rem 0}
+    .list{margin:.5rem 0 .75rem;color:#cbd5e1;padding-left:1.1rem}
+    .reveal{opacity:0;transform:translateY(12px);transition:.5s ease}
+
+    /* ========== PRICING ========== */
+    .pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
+    .price{background:var(--card2);border:1px solid var(--stroke);border-radius:1rem;padding:1.25rem}
+    .price-tag{font-size:1.6rem;font-weight:800;margin:.25rem 0 1rem;background:var(--grad);-webkit-background-clip:text;color:transparent}
+    .price ul{color:#cbd5e1;padding-left:1rem;margin:.5rem 0 1rem}
+    .featured{border-color:rgba(139,92,246,.6);box-shadow:0 0 0 2px rgba(139,92,246,.15)}
+
+    /* ========== DEMO / CONTACT / FAQ ========== */
+    .demo{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .demo-card{background:var(--card);border:1px solid var(--stroke);border-radius:1rem;padding:1rem}
+    textarea{width:100%;min-height:120px;background:#0e0f18;color:#fff;border:1px solid var(--stroke);border-radius:.6rem;padding:.75rem;font:inherit}
+    pre.code{background:#0e0f18;color:#e5e7eb;border:1px solid var(--stroke);border-radius:.6rem;padding:1rem;min-height:120px;white-space:pre-wrap}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .contact-card{background:var(--card2);border:1px solid var(--stroke);border-radius:1rem;padding:1rem}
+    .small{font-size:.9rem;color:var(--muted)}
+    .hint{color:var(--muted);margin-top:1rem}
+
+    /* ========== FOOTER ========== */
+    footer{border-top:1px solid var(--stroke);padding:2rem 0;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+    .foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1rem;align-items:start}
+    .foot a{display:inline-block;margin:.2rem .6rem .2rem 0;color:#e5e7eb;text-decoration:none}
+    .foot a:hover{text-decoration:underline}
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width:980px){
+      .grid-hero{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:repeat(2,1fr)}
+      .demo{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+      .nav-toggle{display:block}
+      nav ul{position:fixed;right:1rem;top:64px;background:rgba(15,16,26,.96);border:1px solid var(--stroke);border-radius:1rem;padding:1rem;flex-direction:column;gap:.25rem;display:none}
+      nav ul.open{display:flex}
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- ========== HEADER ========== -->
   <header>
-    <img src="logo-planifai.png" alt="PlanifAI" style="height: 48px;">
+    <div class="container head">
+      <a class="brand" href="#" aria-label="PlanifAI accueil">
+        <!-- Logo inline -->
+        <svg class="logo" viewBox="0 0 256 256" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#a78bfa"/><stop offset="60%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#581c87"/>
+            </linearGradient>
+          </defs>
+          <rect rx="48" ry="48" width="256" height="256" fill="#0e0f18"/>
+          <path d="M64 176c0-61 40-96 96-96h32v32h-32c-34 0-64 26-64 64H64z" fill="url(#g)"/>
+          <circle cx="176" cy="112" r="16" fill="url(#g)"/>
+        </svg>
+        <span>PlanifAI</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr">Ouvrir le menu</span><span class="burger"></span>
+      </button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#agents">Agents</a></li>
+          <li><a href="#packs">Packs</a></li>
+          <li><a href="#demo">Démo</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact" class="btn btn-primary">Commencer</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Automatisez l’essentiel avec PlanifAI</h1>
-    <p>Des agents IA prêts à l’emploi pour les indépendants et les PME.</p>
-  </section>
-
-  <section style="padding: 4rem 2rem;">
-    <h2 style="text-align:center; font-size: 2rem; color: #c084fc; font-weight: 600; margin-bottom: 4rem;">Découvrez nos agents IA les plus utiles</h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto;">
-      <div class="agent-description">
-        <h3>WebBuilder AI</h3>
-        <p>WebBuilder AI transforme un simple questionnaire en site web professionnel. Vous décrivez votre activité, vos services, vos couleurs préférées… et l’agent vous livre un site HTML prêt à l’emploi. Zéro compétence technique nécessaire.</p>
-        <ul style="margin-top: 1rem; color: #a1a1aa; font-style: italic;">
-          <li>Évite : faire appel à un développeur</li>
-          <li>Évite : chercher un template</li>
-          <li>Évite : perdre des heures sur un éditeur</li>
-        </ul>
-        <p>Idéal pour : coiffeurs, artisans, thérapeutes…</p>
-        <a href="/webbuilder-ai.html">En savoir plus</a>
+  <main id="main">
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="container grid-hero">
+        <div>
+          <h1>Les agents IA qui <span class="accent">bossent</span> pendant que vous vivez.</h1>
+          <p class="lead">Indépendants, artisans, restaurateurs, coachs : déléguez les tâches répétitives à des agents IA prêts à l’emploi. Zéro code, résultats concrets.</p>
+          <div class="cta">
+            <a href="#agents" class="btn btn-primary">Choisir mes agents</a>
+            <a href="#packs" class="btn btn-ghost">Voir les packs</a>
+          </div>
+          <ul class="bullets">
+            <li>⚡ Mise en place en 24–72h</li>
+            <li>🔗 Gmail, Notion/Airtable, Google Sheets, Calendly, Stripe</li>
+            <li>🔒 RGPD by design : données minimisées, exportables</li>
+          </ul>
+        </div>
+        <div>
+          <div class="device">
+            <div class="dev-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="dev-body">
+              <div class="ticker">
+                <div class="line">WebBuilder AI → Génère un mini‑site en 60s</div>
+                <div class="line">ContentAI → 4 posts/semaine + calendrier</div>
+                <div class="line">CRM AutoPilot → devis + relances automatiques</div>
+                <div class="line">Prospecteur AI → leads qualifiés + e‑mails personnalisés</div>
+                <div class="line">MenuMagique → menu du jour + publication</div>
+                <div class="line">FiscAI → pré‑compta, réconciliation, exports</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="agent-description">
-        <h3>CRM AutoPilot</h3>
-        <p>CRM AutoPilot suit vos devis, relance vos clients et surveille les paiements sans intervention. Il personnalise les messages selon chaque client et vous signale les oublis ou opportunités en attente.</p>
-        <ul style="margin-top: 1rem; color: #a1a1aa; font-style: italic;">
-          <li>Évite : oublis de relance</li>
-          <li>Évite : gestion manuelle des paiements</li>
-          <li>Évite : perte de prospects</li>
-        </ul>
-        <p>Idéal pour : freelances, indépendants</p>
-        <a href="/crm-autopilot.html">En savoir plus</a>
+    <!-- ========== AGENTS ========== -->
+    <section id="agents">
+      <div class="container">
+        <h2 class="title">Boutique d’agents</h2>
+        <p class="sub">Des applications IA prêtes à l’emploi. Sélectionnez, branchez, laissez tourner.</p>
+
+        <div class="cards">
+          <!-- Card template helper: each includes a tiny inline icon -->
+          <article class="card reveal">
+            <div class="head-card">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 8h18M7 5v14" fill="none" stroke="#c4b5fd" stroke-width="1.5"/></svg>
+              <h3>WebBuilder AI</h3><p class="tag">Site & Présence</p>
+            </div>
+            <p class="desc">Génère un mini‑site HTML en marque blanche à partir d’un brief (Tally). Mobile‑first, SEO de base, hébergé sur GitHub Pages.</p>
+            <ul class="list"><li>Brief → génération → push GitHub</li><li>Page contact + prise de RDV</li><li>Personnalisation couleur/logo</li></ul>
+            <div><a href="#contact" class="btn btn-secondary">Installer</a></div>
+          </article>
+
+          <article class="card reveal">
+            <div class="head-card">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="#c4b5fd" stroke-width="1.5"/><path d="M7 7h10M7 11h10M7 15h7" stroke="#c4b5fd" stroke-width="1.5"/></svg>
+              <h3>ContentAI</h3><p class="tag">Publication</p>
+            </div>
+            <p class="desc">Plan éditorial + posts hebdo (texte + idées visuels). Export vers Buffer/Notion. Ton et secteur configurables.</p>
+            <ul class="list"><li>4–8 posts/semaine</li><li>Hashtags + timing optimal</li><li>Calendrier mensuel</li></ul>
+            <div><a href="#contact" class="btn btn-secondary">Activer</a></div>
+          </article>
+
+          <article class="card reveal">
+            <div class="head-card">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="#c4b5fd" stroke-width="1.5"/><path d="M4 20v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" stroke="#c4b5fd" stroke-width="1.5"/><rect x="14" y="6" width="6" height="10" rx="2" fill="none" stroke="#c4b5fd" stroke-width="1.5"/></svg>
+              <h3>CRM AutoPilot</h3><p class="tag">Vente & Suivi</p>
+            </div>
+            <p class="desc">Relances intelligentes, devis automatiques, suivi des réponses. Connecté à Gmail/Outlook et Google Sheets ou Notion.</p>
+            <ul class="list"><li>Templates dynamiques</li><li>Scoring d’opportunités</li><li>Tableau de bord récap</li></ul>
+            <div><a href="#contact" class="btn btn-secondary">Démarrer</a></div>
+          </article>
+
+          <article class="card reveal">
+            <div class="head-card">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h7l2 3 3-6 2 3h4" fill="none" stroke="#c4b5fd" stroke-width="1.5"/><circle cx="6" cy="12" r="2" fill="#c4b5fd"/></svg>
+              <h3>Prospecteur AI</h3><p class="tag">Acquisition</p>
+            </div>
+            <p class="desc">Scrape légal + enrichissement de leads (sites, annuaires autorisés). Rédaction d’e‑mails personnalisés, suivi automatique.</p>
+            <ul class="list"><li>Filtres secteur/zone</li><li>Variables de personnalisation</li><li>Tracking ouvertures</li></ul>
+            <div><a href="#contact" class="btn btn-secondary">Prospecter</a></div>
+          </article>
+
+          <article class="card reveal">
+            <div class="head-card">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12M6 8h12M6 12h12M6 16h12" fill="none" stroke="#c4b5fd" stroke-width="1.5"/></svg>
+              <h3>MenuMagique</h3><p class="tag">Restauration</p>
+            </div>
+            <p class="desc">Génère le menu du jour (coût cible, marges) et publie automatiquement sur site + réseaux. Impression PDF.</p>
+            <ul class="list"><li>Recettes optimisées</li><li>Photos générées ou placards</li><li>Diffusion multicanale</li></ul>
+            <div><a href="#contact" class="btn btn-secondary">Générer</a></div>
+          </article>
+
+          <article class="card reveal">
+            <div class="head-card">
+              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#c4b5fd" stroke-width="1.5"/><path d="M7 10h10M7 14h7" stroke="#c4b5fd" stroke-width="1.5"/></svg>
+              <h3>FiscAI</h3><p class="tag">Pré‑comptabilité</p>
+            </div>
+            <p class="desc">Analyse de factures, catégorisation, rapprochement bancaire, export CSV mensuel pour l’expert‑comptable.</p>
+            <ul class="list"><li>Lecture PDF/PNG</li><li>Règles par TVA & catégorie</li><li>Alertes d’anomalies</li></ul>
+            <div><a href="#contact" class="btn btn-secondary">Automatiser</a></div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="agent-description">
-        <h3>ContentAI</h3>
-        <p>ContentAI génère automatiquement des publications chaque semaine à partir de votre métier, de vos préférences et de votre audience. Vous recevez des textes prêts à poster, des hashtags et visuels cohérents pour rester visible sans y penser.</p>
-        <ul style="margin-top: 1rem; color: #a1a1aa; font-style: italic;">
-          <li>Évite : panne d’inspiration</li>
-          <li>Évite : irrégularité de publication</li>
-          <li>Évite : invisibilité sur les réseaux</li>
-        </ul>
-        <p>Idéal pour : coachs, commerçants, créateurs</p>
-        <a href="/contentai.html">En savoir plus</a>
+    <!-- ========== PACKS ========== -->
+    <section id="packs" class="alt">
+      <div class="container">
+        <h2 class="title">Packs</h2>
+        <p class="sub">Des combinaisons simples. Ajoutez des agents à la carte.</p>
+        <div class="pricing">
+          <article class="price reveal"><h3>Solo</h3><p class="price-tag">49 € / mois</p>
+            <ul><li>1 agent au choix</li><li>Support standard</li><li>Activation 72h</li></ul>
+            <a class="btn btn-primary" href="#" aria-label="Souscrire Solo">Souscrire</a>
+          </article>
+          <article class="price reveal"><h3>Délégué</h3><p class="price-tag">99 € / mois</p>
+            <ul><li>2 agents</li><li>Support prioritaire J+1</li><li>Activation 48h</li></ul>
+            <a class="btn btn-primary" href="#" aria-label="Souscrire Délégué">Souscrire</a>
+          </article>
+          <article class="price reveal featured"><h3>Piloté</h3><p class="price-tag">149 € / mois</p>
+            <ul><li>3 agents</li><li>Dashboard Notion/Airtable</li><li>Activation 24–48h</li></ul>
+            <a class="btn btn-primary" href="#" aria-label="Souscrire Piloté">Souscrire</a>
+          </article>
+          <article class="price reveal"><h3>Autonome</h3><p class="price-tag">249 € / mois</p>
+            <ul><li>5–6 agents</li><li>Routines & scénarios avancés</li><li>Support prioritaire H+4</li></ul>
+            <a class="btn btn-primary" href="#" aria-label="Souscrire Autonome">Souscrire</a>
+          </article>
+        </div>
+        <p class="hint">Remplace les liens Stripe dans ce bloc (chercher “Souscrire”).</p>
+      </div>
+    </section>
+
+    <!-- ========== DEMO ========== -->
+    <section id="demo">
+      <div class="container">
+        <h2 class="title">Démo instantanée</h2>
+        <p class="sub">Test rapide de la logique (simulation locale, aucun envoi de données).</p>
+        <div class="demo">
+          <div class="demo-card reveal">
+            <h3>Générer un mini‑site (squelette)</h3>
+            <p>Colle un bref texte d’entreprise.</p>
+            <textarea id="wb-brief" placeholder="Ex. : Coiffeuse Afro à Montreuil, coupe, tresses, RDV..."></textarea>
+            <button class="btn btn-secondary" id="wb-generate">Générer</button>
+            <pre id="wb-output" class="code"></pre>
+          </div>
+          <div class="demo-card reveal">
+            <h3>Proposer un e‑mail de relance</h3>
+            <p>Donne un contexte succinct.</p>
+            <textarea id="crm-ctx" placeholder="Devis envoyé le 2 mai, client : Mme Dupont, chantier peinture 2 300 €..."></textarea>
+            <button class="btn btn-secondary" id="crm-generate">Proposer</button>
+            <pre id="crm-output" class="code"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="alt">
+      <div class="container">
+        <h2 class="title">Démarrer</h2>
+        <p class="sub">Brief en 2 minutes. On active vos agents.</p>
+        <div class="contact">
+          <div class="contact-card reveal">
+            <h3>Formulaire d’activation</h3>
+            <p>Brief rapide (secteur, outils, pack). Retour sous 24h.</p>
+            <p><a class="btn btn-primary" href="https://tally.so/r/3qg6E2" target="_blank" rel="noopener">Remplir le brief</a></p>
+            <p class="small">Lien Tally remplaçable par un formulaire maison.</p>
+          </div>
+          <div class="contact-card reveal">
+            <h3>Contact direct</h3>
+            <ul class="small">
+              <li><strong>E‑mail :</strong> logiciel.hyb@gmail.com</li>
+              <li><strong>Disponibilité :</strong> Lun–Sam, 9:00–19:00</li>
+              <li><strong>Zone :</strong> France métropolitaine & DOM</li>
+            </ul>
+            <p class="small">Hébergement statique recommandé : GitHub Pages. Données clients sur Notion/Airtable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="title">FAQ</h2>
+        <div class="demo">
+          <details class="demo-card reveal">
+            <summary>Est‑ce que je dois coder ?</summary>
+            <p>Non. Les agents sont pré‑packagés. On connecte vos outils et on configure vos règles. Vous gardez la main.</p>
+          </details>
+          <details class="demo-card reveal">
+            <summary>Quels outils sont compatibles ?</summary>
+            <p>Gmail/Outlook, Google Drive, Google Sheets, Notion, Airtable, Calendly, Buffer, Stripe, Zapier, Make, GitHub Pages (liste non exhaustive).</p>
+          </details>
+          <details class="demo-card reveal">
+            <summary>Comment gérez‑vous la conformité (RGPD) ?</summary>
+            <p>Minimisation des données, traçabilité des accès, suppression à la demande, exports mensuels. Les traitements sont documentés.</p>
+          </details>
+          <details class="demo-card reveal">
+            <summary>Puis‑je arrêter quand je veux ?</summary>
+            <p>Oui. Abonnement mensuel sans engagement. Vos données vous appartiennent.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container foot">
+      <div>
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <svg class="logo" viewBox="0 0 256 256" aria-hidden="true"><defs><linearGradient id="g2" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="60%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#581c87"/></linearGradient></defs><rect rx="48" ry="48" width="256" height="256" fill="#0e0f18"/><path d="M64 176c0-61 40-96 96-96h32v32h-32c-34 0-64 26-64 64H64z" fill="url(#g2)"/><circle cx="176" cy="112" r="16" fill="url(#g2)"/></svg>
+          <strong>PlanifAI</strong>
+        </div>
+        <p class="small">© <span id="year"></span> PlanifAI. Tous droits réservés.</p>
+      </div>
+      <nav>
+        <a href="#agents">Agents</a><a href="#packs">Packs</a><a href="#demo">Démo</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="small">
+        <a href="#" aria-disabled="true">Mentions légales</a> · <a href="#" aria-disabled="true">Confidentialité</a>
       </div>
     </div>
-  </section>
-
-  <footer>
-    © 2025 PlanifAI – Tous droits réservés.
   </footer>
+
+  <script>
+    // Nav mobile
+    const toggle=document.querySelector('.nav-toggle');const menu=document.getElementById('nav-menu');
+    if(toggle&&menu){toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',open?'true':'false')})}
+
+    // Reveal on scroll
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.style.opacity=1,e.target.style.transform='none'})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Demo: WebBuilder skeleton
+    const briefEl=document.getElementById('wb-brief'),btnWB=document.getElementById('wb-generate'),outWB=document.getElementById('wb-output');
+    if(btnWB){btnWB.addEventListener('click',()=>{const t=(briefEl.value||'').trim();const name=(t.match(/([A-Za-zÀ-ÿ' -]{3,})/)||[])[1]||'Votre activité';const city=(t.match(/à ([A-Za-zÀ-ÿ-]+)/i)||[])[1]||'Votre ville';
+      outWB.textContent=
+`<section class="hero-min">
+  <h1>${name}</h1>
+  <p>Services, tarifs, prise de rendez‑vous.</p>
+</section>
+<section>
+  <h2>Prestations</h2>
+  <ul><li>Prestation 1</li><li>Prestation 2</li><li>Prestation 3</li></ul>
+</section>
+<section>
+  <h2>Contact</h2>
+  <p>Ville : ${city} · Téléphone : 06 xx xx xx xx</p>
+</section>`;})}
+
+    // Demo: CRM email
+    const ctxEl=document.getElementById('crm-ctx'),btnCRM=document.getElementById('crm-generate'),outCRM=document.getElementById('crm-output');
+    if(btnCRM){btnCRM.addEventListener('click',()=>{const c=(ctxEl.value||'').trim()||'Devis envoyé le 2 mai, client : Mme Dupont, chantier 2 300 €';
+      outCRM.textContent=
+`Objet : Suite à notre devis — petit rappel
+Bonjour,
+Je me permets un court message à propos de ${c}.
+Si vous avez des questions ou un ajustement à prévoir, je peux vous proposer un créneau cette semaine.
+Bien à vous,
+— Votre entreprise`;})}
+  </script>
 </body>
 </html>
