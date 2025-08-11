@@ -1,193 +1,71 @@
-Page FiscAI (à coller depuis ton fichier téléchargé)
- 
-
-<!DOCTYPE html>
- 
-
+m<!DOCTYPE html>
 <html lang="fr">
- 
-
 <head>
- 
-
-  <meta charset="UTF-8" />
- 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- 
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FiscAI – PlanifAI</title>
- 
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
- 
-
-  <link rel="stylesheet" href="../style.css"/>
- 
-
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="manifest" href="../manifest.json" />
 </head>
- 
-
 <body>
- 
-
-<nav class="main-nav">
- 
-
-  <ul>
- 
-
-    <li><a href="/index.html">Accueil</a></li>
- 
-
-    <li><a href="/agents/webbuilder.html">WebBuilder AI</a></li>
- 
-
-    <li><a href="/agents/crm_autopilot.html">CRM AutoPilot</a></li>
- 
-
-    <li><a href="/agents/content_ai.html">ContentAI</a></li>
- 
-
-    <li><a href="/agents/prospecteur_ai.html">Prospecteur AI</a></li>
- 
-
-    <li><a href="/agents/fiscai.html">FiscAI</a></li>
- 
-
-  </ul>
- 
-
-</nav>
- 
-
-<header class="reveal">
- 
-
-  <h1>FiscAI</h1>
- 
-
-  <p>Automatisez votre pré-comptabilité. Catégorisation, suivi, alertes : l’IA s’en occupe.</p>
- 
-
-</header>
- 
-
-<section class="section reveal">
- 
-
-  <h2>Pourquoi utiliser FiscAI ?</h2>
- 
-
-  <p>FiscAI vous aide à suivre vos revenus, vos dépenses, vos obligations fiscales sans prise de tête. L’agent lit vos factures, les classe automatiquement, vous alerte sur les échéances URSSAF, et vous prépare un tableau mensuel de suivi. Vous restez à jour, sans stress.</p>
- 
-
-</section>
- 
-
-<section class="section reveal">
- 
-
-  <h2>Fonctionnement en 3 étapes</h2>
- 
-
-  <div class="cards">
- 
-
-    <div class="card">
- 
-
-      <h3>1. Vous uploadez vos factures</h3>
- 
-
-      <p>Photos, PDF, notes de frais : il lit tout et en extrait les infos clés.</p>
- 
-
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <svg class="logo" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="60%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#581c87"/></linearGradient></defs><rect rx="48" ry="48" width="256" height="256" fill="#0e0f18"/><path d="M64 176c0-61 40-96 96-96h32v32h-32c-34 0-64 26-64 64H64z" fill="url(#g)"/><circle cx="176" cy="112" r="16" fill="url(#g)"/></svg>
+        <span>PlanifAI</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="../index.html#agents">Agents</a></li>
+          <li><a href="../index.html#packs">Packs</a></li>
+          <li><a href="../index.html#demo">Démo</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+          <li><a href="../index.html#contact" class="btn btn-primary">Commencer</a></li>
+        </ul>
+      </nav>
     </div>
- 
+  </header>
 
-    <div class="card">
- 
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>FiscAI</h1>
+          <p class="lead">Analyse vos factures, les catégorise et rapproche vos transactions. Export mensuel pour votre comptable.</p>
+          <div class="cta-row">
+            <a href="../index.html#packs" class="btn btn-primary">Choisir un pack</a>
+            <a href="../index.html#contact" class="btn btn-ghost">Demander une démo</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h3>2. L’agent les analyse et les classe</h3>
- 
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Fonctionnalités clés</h2>
+        <ul class="card-list">
+          <li>Lecture et catégorisation des PDFs/PNGs</li>
+          <li>Règles personnalisables par TVA et catégorie</li>
+          <li>Rapprochement bancaire automatique</li>
+          <li>Export CSV mensuel</li>
+        </ul>
+      </div>
+    </section>
 
-      <p>Dépense pro, revenu, achat matériel, TVA : tout est catégorisé intelligemment.</p>
- 
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title">Pourquoi FiscAI ?</h2>
+        <p>Gagnez du temps sur votre pré‑comptabilité. L’agent s’occupe de lire, classer et signaler les anomalies de vos factures et dépenses.</p>
+        <p>Vous recevez chaque mois un export prêt à transmettre à votre expert‑comptable.</p>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="small">© <span id="year"></span> PlanifAI — agents IA prêts à l’emploi.</p>
     </div>
- 
-
-    <div class="card">
- 
-
-      <h3>3. Vous recevez un rapport mensuel</h3>
- 
-
-      <p>Avec tableau de synthèse, alertes, et export prêt à envoyer à votre comptable.</p>
- 
-
-    </div>
- 
-
-  </div>
- 
-
-</section>
- 
-
-<section class="section reveal">
- 
-
-  <h2>Cas d’usage</h2>
- 
-
-  <ul>
- 
-
-    <li><strong>Auto-entrepreneur :</strong> suit ses revenus/dépenses sans utiliser Excel.</li>
- 
-
-    <li><strong>Consultante TPE :</strong> gagne du temps et anticipe ses cotisations mensuelles.</li>
- 
-
-    <li><strong>Indépendant en libéral :</strong> prépare ses justificatifs pour son cabinet comptable automatiquement.</li>
- 
-
-  </ul>
- 
-
-</section>
- 
-
-<section class="section reveal" style="text-align: center;">
- 
-
-  <h2>Prêt à respirer côté paperasse ?</h2>
- 
-
-  <p>Commandez FiscAI et laissez l’agent faire le suivi comptable à votre place.</p>
- 
-
-  <a href="#" class="cta">Commander FiscAI</a>
- 
-
-</section>
- 
-
-<footer>
- 
-
-  &copy; 2025 PlanifAI. Tous droits réservés.
- 
-
-</footer>
- 
-
-<script src="../script.js"></script>
- 
-
+  </footer>
+  <script src="../script.js"></script>
 </body>
- 
-
 </html>
