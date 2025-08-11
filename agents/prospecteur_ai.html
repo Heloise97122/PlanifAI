@@ -1,64 +1,70 @@
-<!DOCTYPE html>
+m<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prospecteur AI – PlanifAI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="../style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prospecteur AI – PlanifAI</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="manifest" href="../manifest.json" />
 </head>
 <body>
-<nav class="main-nav">
-  <ul>
-    <li><a href="/index.html">Accueil</a></li>
-    <li><a href="/agents/webbuilder.html">WebBuilder AI</a></li>
-    <li><a href="/agents/crm_autopilot.html">CRM AutoPilot</a></li>
-    <li><a href="/agents/content_ai.html">ContentAI</a></li>
-    <li><a href="/agents/prospecteur_ai.html">Prospecteur AI</a></li>
-    <li><a href="/agents/fiscai.html">FiscAI</a></li>
-  </ul>
-</nav>
-<header class="reveal">
-  <h1>Prospecteur AI</h1>
-  <p>Votre agent de prospection intelligent. Trouve des leads, rédige les mails, envoie les relances.</p>
-</header>
-<section class="section reveal">
-  <h2>Pourquoi utiliser Prospecteur AI ?</h2>
-  <p>Vous perdez du temps à chercher des clients et à rédiger vos mails ? Prospecteur AI le fait pour vous. Il identifie des prospects qualifiés, rédige des messages personnalisés et structure votre approche commerciale. Vous gagnez du temps, et vos emails sont mieux reçus.</p>
-</section>
-<section class="section reveal">
-  <h2>Fonctionnement en 3 étapes</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>1. Vous indiquez votre cible</h3>
-      <p>Le secteur, la zone géographique, le type de client recherché.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <svg class="logo" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="60%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#581c87"/></linearGradient></defs><rect rx="48" ry="48" width="256" height="256" fill="#0e0f18"/><path d="M64 176c0-61 40-96 96-96h32v32h-32c-34 0-64 26-64 64H64z" fill="url(#g)"/><circle cx="176" cy="112" r="16" fill="url(#g)"/></svg>
+        <span>PlanifAI</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="../index.html#agents">Agents</a></li>
+          <li><a href="../index.html#packs">Packs</a></li>
+          <li><a href="../index.html#demo">Démo</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+          <li><a href="../index.html#contact" class="btn btn-primary">Commencer</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="card">
-      <h3>2. L’agent collecte et filtre les prospects</h3>
-      <p>Il utilise des sources publiques pour détecter les bons profils.</p>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Prospecteur AI</h1>
+          <p class="lead">Scrape légal et enrichissement des leads. E‑mails personnalisés et suivi automatisé.</p>
+          <div class="cta-row">
+            <a href="../index.html#packs" class="btn btn-primary">Choisir un pack</a>
+            <a href="../index.html#contact" class="btn btn-ghost">Demander une démo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Fonctionnalités clés</h2>
+        <ul class="card-list">
+          <li>Filtres sectoriels et géographiques</li>
+          <li>Variables de personnalisation des e‑mails</li>
+          <li>Tracking des ouvertures et des clics</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title">Pourquoi Prospecteur AI ?</h2>
+        <p>Automatisez votre prospection sans violer le RGPD. L’agent recherche, enrichit et contacte des leads légaux.</p>
+        <p>Économisez des heures et obtenez des réponses grâce à des messages sur mesure et à un suivi automatique.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="small">© <span id="year"></span> PlanifAI — agents IA prêts à l’emploi.</p>
     </div>
-    <div class="card">
-      <h3>3. Il rédige les messages pour vous</h3>
-      <p>Des mails personnalisés, avec un ton adapté et une structure efficace.</p>
-    </div>
-  </div>
-</section>
-<section class="section reveal">
-  <h2>Cas d’usage</h2>
-  <ul>
-    <li><strong>Graphiste freelance :</strong> démarche des agences à Paris avec un mail pro bien ciblé.</li>
-    <li><strong>Consultant RH :</strong> contacte des PME du secteur industriel avec un pitch précis.</li>
-    <li><strong>Formateur indépendant :</strong> relance des écoles et centres de formation avec des séquences personnalisées.</li>
-  </ul>
-</section>
-<section class="section reveal" style="text-align: center;">
-  <h2>Prêt à remplir votre agenda ?</h2>
-  <p>Commandez Prospecteur AI et laissez l’IA prospecter pour vous, tous les jours.</p>
-  <a href="#" class="cta">Commander Prospecteur AI</a>
-</section>
-<footer>
-  &copy; 2025 PlanifAI. Tous droits réservés.
-</footer>
-<script src="../script.js"></script>
+  </footer>
+  <script src="../script.js"></script>
 </body>
 </html>
